@@ -27,21 +27,31 @@ These instructions are also based off forked directories from @jsgro and @Christ
 
 ## Setup
 
-Clone repository into your home directory and `cd` into the cloned folder. 
+Clone repository into your home directory and `cd` into the cloned folder. Then move into the `recipes` folder and use an interactive `build` job to create the SIF apptainer files.
 
-## Build container
 ```
-export APPTAINER_CACHEDIR=$PWD
-export TMPDIR=$PWD
-# build base container
-apptainer build base.sif base.def
-# build alphafold container
-apptainer build alphafold.sif alphafold.def
+cd alphafold-chtc
+cd recipes
+condor_submit -i build.sub
+# Enter interactive build
+apptainer build base-2.3.2.sif base-2.3.2.def
+apptainer build alphafold-2.3.2.sif alphafold-2.3.2.def
+# Test the containers:
+
+# Move the container to an accessible location (e.g. projects or staging)
+# replace the NETID or path as necessary.
+mv *.sif /staging/YOURNETID/apptainer/.
+
+# Leave the interactive build job
+exit
+
+pwd
+# You should be in ~/alphafold-chtc/recipes
 ```
 
 ## Run AlphaFold Job
 
-Customize or add the following options to a typical CHTC HTCondor submit file: 
+Customize or add the following options to a typical CHTC HTCondor submit file:
 
 ```
 universe = container
