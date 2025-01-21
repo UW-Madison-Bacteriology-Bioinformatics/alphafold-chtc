@@ -1,17 +1,29 @@
 ![Status - Testing](https://img.shields.io/badge/Status-Testing-2ea44f)
 
 
-# AlphaFold Singularity Container
+# Running AlphaFold on CHTC
 
-This repo provides definition files to build a singularity container of AlphaFold v2 
-(https://github.com/deepmind/alphafold) that will run and be easy to invoke in the NMRbox
-environment.
+AlphaFold is a protein structure database, and a tool that can predict 3D protein structure from sequence data. (https://alphafold.ebi.ac.uk/).
+The Center for High Throughput Computing (https://chtc.cs.wisc.edu/) is a campus wide computing center at the University of Wisconsin-Madison that provides access to powerful computers to perform high throughput calculations for research. 
+
+This repository aims to provide step-by-step instructions on how to set up AlphaFold on CHTC to predict protein structures. 
 
 ## Credits:
 Build instructions from [non-docker setting](https://github.com/kalininalab/alphafold_non_docker) by kalininalab were used.
 These instructions are also based off forked directories from @jsgro and @ChristinaLK:
 - https://github.com/jsgro/alphafold_singularity
 - https://github.com/ChristinaLK/alphafold_singularity
+
+## Prerequisites
+- A CHTC account (https://chtc.cs.wisc.edu/uw-research-computing/form.html)
+- Prior experience with Bash and Unix
+- Understanding of how files are organized on CHTC (e.g. `/home/`, `/staging/`, `/projects`) and how to submit a job using a container (`HTcondor`, `containers`)
+  Resources:
+  [Computing Guide](https://github.com/UW-Madison-Bacteriology-Bioinformatics/Computing/wiki) & 
+  [How to use containers on CHTC, with examples](https://github.com/UW-Madison-Bacteriology-Bioinformatics/chtc-containers/blob/main/README.md)
+
+> [!NOTE]
+> If you want to get oriented, please feel free to schedule a 1-on-1 with the [Bioinformatics Research Support Service](https://bioinformatics.bact.wisc.edu/) by appointment, and/or meet a CHTC Facilitator during their office hours [CHTC Facilitators](https://chtc.cs.wisc.edu/uw-research-computing/get-help.html).
 
 ## Setup
 
