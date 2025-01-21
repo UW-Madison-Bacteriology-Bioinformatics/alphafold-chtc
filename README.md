@@ -1,3 +1,6 @@
+![Status - Testing](https://img.shields.io/badge/Status-Testing-2ea44f)
+
+
 # AlphaFold Singularity Container
 
 This repo provides definition files to build a singularity container of AlphaFold v2 
