@@ -4,7 +4,11 @@ This repo provides definition files to build a singularity container of AlphaFol
 (https://github.com/deepmind/alphafold) that will run and be easy to invoke in the NMRbox
 environment.
 
+## Credits:
 Build instructions from [non-docker setting](https://github.com/kalininalab/alphafold_non_docker) by kalininalab were used.
+These instructions are also based off forked directories from @jsgro and @ChristinaLK:
+- https://github.com/jsgro/alphafold_singularity
+- https://github.com/ChristinaLK/alphafold_singularity
 
 ## Setup
 
