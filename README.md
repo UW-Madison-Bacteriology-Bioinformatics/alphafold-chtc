@@ -25,12 +25,40 @@ These instructions are also based off forked directories from @jsgro and @Christ
 > [!NOTE]
 > If you want to get oriented, please feel free to schedule a 1-on-1 with the [Bioinformatics Research Support Service](https://bioinformatics.bact.wisc.edu/) by appointment, and/or meet a CHTC Facilitator during their office hours [CHTC Facilitators](https://chtc.cs.wisc.edu/uw-research-computing/get-help.html).
 
-## Setup
+# Step by Step instructions
 
-Clone repository into your home directory and `cd` into the cloned folder. Then move into the `recipes` folder and use an interactive `build` job to create the SIF apptainer files.
+## Set up 
+To run AlphaFold on CHTC, we will need:
+
+1. Path to the AlphaFold full database
+2. A submit file containing information for HTCondor to submit the job(s)
+3. A sh script with line by line commands for the execute node to run
+4. A container (.sif) file containing the alphafold program
+
+### Database
+
+If you do not need to predict against the whole AlphaFold database, we suggest using [FoldSeek](https://search.foldseek.com/search) or [ColabFold](https://github.com/sokrypton/ColabFold), which can be run online via a web interface, in which case you will not need the instructions on this github repo. Thisi won't use the whole AlphaFold database and will have a time-out limit of a few hours, but if your protein is small this might work.
+
+>[!WARNING]
+> The AlphaFold database as a whole is 23TB!
+> If you need to run this "locally" because of the limitations mentionned above, you must think carefully about your research question first, so we can query your fasta sequence against the proper database. We suggest discussing with an experience AlphaFold user, PI or colleague who would have recommendations on best practices. For example, the AlphaFold databases has sequence predictions for the human proteome, and about 20 other model organisms.
+> You can download a subset of the data using the instructions here: https://github.com/google-deepmind/alphafold/blob/main/afdb/README.md
+> If you have questions about how to interpret the guide at the link referenced, feel free to contact us.
+
+
+Log into chtc, and clone repository into your home directory and `cd` into the cloned folder. 
 
 ```
+ssh netid@address
+# enter netid and use two-factor authentification
+
+git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/alphafold-chtc.git
 cd alphafold-chtc
+```
+
+Then move into the `recipes` folder and use an interactive `build` job to create the SIF apptainer files.
+
+```
 cd recipes
 condor_submit -i build.sub
 # Enter interactive build
