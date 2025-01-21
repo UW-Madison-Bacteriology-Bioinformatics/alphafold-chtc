@@ -1,0 +1,30 @@
+universe = container
+
+## REPLACE WITH THE PATH TO SIF FILE ##
+container_image = /staging/netID/apptainer/alphafold-2.3.2.sif
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+transfer_input_files = PATH_TO_CONTAINER/alphafold-2.3.2.sif, $(FASTA_file), runA3.sh, multimer.sh
+executable = runA3.sh
+
+# arguments passed to executable SH file as $1 $2 $3 $4
+arguments = /gpulab_data/alphafold  L1_16x5.fa DUMMY  2023-06-01
+
+request_cpus =  4
+request_memory = 350 GB
+request_disk = 220 GB
+
+
+requirements = (HasGpulabData == true)
+request_GPUs = 1
++WantGPULab = true
+require_gpus = (GlobalMemoryMb >= 60000)
+
+error   = logs/alphafold_$(process)_$(cluster).err
+output  = logs/alphafold_$(process)_$(cluster).out
+log     = logs/alphafold_$(process)_$(cluster).log
+
+queue FASTA_file jobName from (
+multimer.fasta   multi-test)
