@@ -2,7 +2,8 @@
 
 DB_PATH="$1"
 FASTA="$2"
-DATE="$3"
+STAGING="$3"
+DATE="$4"
 
 # run multimer or monomer
 bash ./multimer.sh ${DB_PATH} ${FASTA} $(pwd) ${DATE} -m multimer
@@ -15,3 +16,4 @@ gzip `basename ${FASTA} .fa`.tar
 ls -lh `basename ${FASTA} .fa`.tar.*
 
 # Use transfer_output_files to export and remap to your staging folder
+ls -lht

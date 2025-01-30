@@ -1,8 +1,9 @@
 #!/bin/bash
 
-source /opt/miniconda3/etc/profile.d/conda.sh
-conda activate alphafold
-python3 /opt/alphafold/run_alphafold.py \
+#source /opt/miniconda3/etc/profile.d/conda.sh
+#conda activate alphafold
+
+python3 run_alphafold.py \
   --data_dir "$1" \
   --fasta_paths "$2"  \
   --output_dir "$3" \

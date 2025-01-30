@@ -1,1 +1,1 @@
-multimer.fasta
+monomer.fasta
