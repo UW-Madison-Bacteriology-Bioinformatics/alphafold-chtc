@@ -10,17 +10,13 @@ when_to_transfer_output = ON_EXIT
 
 # Change multimer.sh to monomer.sh if necessary
 
-transfer_input_files = tests/$(FASTA_file),alphafold.sh,multimer.sh,run_alphafold.py
+transfer_input_files = tests/$(FASTA_file),alphafold.sh,multimer.sh,monomer.sh,run_alphafold.py
 
 # This should be the bash script
 executable = alphafold.sh
 
 # arguments passed to executable SH file as $1 $2 $3 $4
 arguments = /gpulab_data/alphafold_2023_06_09 $(FASTA_file) $(staging) 2023-06-01
-
-#request_cpus =  4
-#request_memory = 350 GB
-#request_disk = 220 GB
 
 request_cpus = 4
 request_memory = 20GB
